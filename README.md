@@ -1,4 +1,4 @@
-# ZGT Robotic Hand ROS
+# Roger Robotic Hand ROS
 
 ## Build
 
