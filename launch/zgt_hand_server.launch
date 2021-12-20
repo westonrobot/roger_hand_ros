@@ -1,0 +1,4 @@
+<launch>
+<node name="hand_driver" pkg="zgt_hand_ros" type="hand_driver_node" ns="zgt_hand" output="screen"/>
+<arg name="port_name" value="/dev/ttyUSB1" />
+</launch>

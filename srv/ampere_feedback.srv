@@ -1,0 +1,4 @@
+bool ampere_feedback
+int32 ampere_threshold
+---
+bool set_ok
