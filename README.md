@@ -14,17 +14,17 @@ $ catkin_make
 
 ## Usage
 
-* Launch the zgt_hand server (default port_name:=/dev/ttyUSB1)
+* Launch the roger_hand server (default port_name:=/dev/ttyUSB1)
 
 
 ```
-$ roslaunch zgt_hand_ros zgt_hand_server.launch port_name:=/dev/ttyUSB*
+$ roslaunch roger_hand_ros roger_hand_server.launch port_name:=/dev/ttyUSB*
 ```
 
 * Current state of hand
 
 ```
-$ rostopic echo /zgt_hand/hand_state
+$ rostopic echo /roger_hand/hand_state
 ```
 * Single finger control (finger_id = 1 ~ 6, value =  0 ~ 2000)
 
@@ -37,16 +37,16 @@ $ rostopic echo /zgt_hand/hand_state
     - 6: little finger
 
 ```
-$ rosservice call /zgt_hand/set_finger_pose finger_id value
+$ rosservice call /roger_hand/set_finger_pose finger_id value
 
-$ rosservice call /zgt_hand/set_finger_pose 1 2000
+$ rosservice call /roger_hand/set_finger_pose 1 2000
 ```
 * Full hand control (value = 0 ~ 2000)
 
 ```
-$ rosservice call /zgt_hand/set_hand_pose [thumb_1, thumb_2, index, middle, ring, little]
+$ rosservice call /roger_hand/set_hand_pose [thumb_1, thumb_2, index, middle, ring, little]
 
-$ rosservice call /zgt_hand/set_hand_pose [2000,300,2000,2000,2000,2000]
+$ rosservice call /roger_hand/set_hand_pose [2000,300,2000,2000,2000,2000]
 ```
 * Clear error
     
@@ -55,23 +55,23 @@ $ rosservice call /zgt_hand/set_hand_pose [2000,300,2000,2000,2000,2000]
     - hand failed to respond to single finger / full hand control
 
 ```
-$ rosservice call /zgt_hand/clear_hand_error
+$ rosservice call /roger_hand/clear_hand_error
 ```
 
 * Set ampere feedback and threshold (ampere_feedback = true (default) / false, ampere_threshold = 800 (default) )
 
 ```
-$ rosservice call /zgt_hand/set_ampere_feedback ampere_feedback ampere_threshold
+$ rosservice call /roger_hand/set_ampere_feedback ampere_feedback ampere_threshold
 
-$ rosservice call /zgt_hand/set_ampere_feedback true 800
-$ rosservice call /zgt_hand/set_ampere_feedback false 0
+$ rosservice call /roger_hand/set_ampere_feedback true 800
+$ rosservice call /roger_hand/set_ampere_feedback false 0
 ```
 
 * Enable or disable hand
 
 ```
-$ rosservice call /zgt_hand/set_hand_enable true
-$ rosservice call /zgt_hand/set_hand_enable false
+$ rosservice call /roger_hand/set_hand_enable true
+$ rosservice call /roger_hand/set_hand_enable false
 ```
 
 Note:  If you get the error "... permission denied ..." when trying to open the port, you need to grant access of the port to your user accout:

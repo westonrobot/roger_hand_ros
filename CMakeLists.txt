@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(zgt_hand_ros)
+project(roger_hand_ros)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -32,7 +32,7 @@ catkin_package(
   CATKIN_DEPENDS
   message_runtime
 #  INCLUDE_DIRS include
-#  LIBRARIES zgt_hand_ros
+#  LIBRARIES roger_hand_ros
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -49,7 +49,7 @@ include_directories(
 )
 
 add_library(hand_control
-  include/zgt_hand_ros/hand_control.h
+  include/roger_hand_ros/hand_control.h
   src/hand_control.cpp
 )
 add_dependencies(hand_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -62,7 +62,7 @@ target_link_libraries(hand_control
 add_executable(hand_driver_node
 src/hand_driver_node.cpp
 src/hand_driver.cpp
-include/zgt_hand_ros/hand_driver.h
+include/roger_hand_ros/hand_driver.h
 )
 add_dependencies(hand_driver_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(hand_driver_node

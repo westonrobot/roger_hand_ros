@@ -1,4 +1,4 @@
-#include "zgt_hand_ros/hand_control.h"
+#include "roger_hand_ros/hand_control.h"
 
 /*******************************************
  *  Setup serial attr

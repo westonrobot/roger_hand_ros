@@ -1,7 +1,7 @@
 <launch>
     <arg name="port_name" default="/dev/ttyUSB1"/>
 
-    <node name="hand_driver" pkg="zgt_hand_ros" type="hand_driver_node" ns="zgt_hand" output="screen">
+    <node name="hand_driver" pkg="roger_hand_ros" type="hand_driver_node" ns="roger_hand" output="screen">
         <param name="port_name" type="string" value="$(arg port_name)" />
     </node>
 </launch>

@@ -1,7 +1,7 @@
-#include "zgt_hand_ros/hand_driver.h"
+#include "roger_hand_ros/hand_driver.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-#include "zgt_hand_ros/hand_control.h"
+#include "roger_hand_ros/hand_control.h"
 
 int main(int argc, char *argv[]) {
 
@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   ros::NodeHandle n;
 
   std::string port_name;
-  bool ifget = ros::param::get("/zgt_hand/hand_driver/port_name",port_name);
+  bool ifget = ros::param::get("/roger_hand/hand_driver/port_name",port_name);
   if(!ifget)
   {
     ROS_INFO("Please enter the port name.");
