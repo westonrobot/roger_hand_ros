@@ -1,4 +1,4 @@
-# Roger Robotic Hand ROS
+# Roger Robot Hand ROS
 
 ## Build
 
@@ -7,7 +7,7 @@ ROS: Melodic
 
 ```
 $ cd <your-catkin-ws>/src
-$ git clone https://github.com/westonrobot/zgt_hand_ros.git
+$ git clone https://github.com/westonrobot/roger_hand_ros.git
 $ cd ..
 $ catkin_make
 ```
