@@ -14,12 +14,11 @@ $ catkin_make
 
 ## Usage
 
-* Launch the zgt_hand server
+* Launch the zgt_hand server (default port_name:=/dev/ttyUSB1)
 
-    * Note: Change value of port_name in zgt_hand_server.launch to port detected (/dev/ttyUSB*)
 
 ```
-$ roslaunch zgt_hand_ros zgt_hand_server.launch
+$ roslaunch zgt_hand_ros zgt_hand_server.launch port_name:=/dev/ttyUSB*
 ```
 
 * Current state of hand
@@ -49,7 +48,11 @@ $ rosservice call /zgt_hand/set_hand_pose [thumb_1, thumb_2, index, middle, ring
 
 $ rosservice call /zgt_hand/set_hand_pose [2000,300,2000,2000,2000,2000]
 ```
-* Clear error (error, if present, will be shown in current state of hand)
+* Clear error
+    
+    -call this service when:
+    - current state of hand shows 1 under hand_err
+    - hand failed to respond to single finger / full hand control
 
 ```
 $ rosservice call /zgt_hand/clear_hand_error

@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
   ros::NodeHandle n;
 
   std::string port_name;
-  bool ifget = ros::param::get("port_name",port_name);
+  bool ifget = ros::param::get("/zgt_hand/hand_driver/port_name",port_name);
   if(!ifget)
   {
     ROS_INFO("Please enter the port name.");
