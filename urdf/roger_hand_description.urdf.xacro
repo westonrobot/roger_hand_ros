@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="roger_hand" xmlns:xacro="hhttp://ros.org/wiki/xacro">
+
+<!--****************hand_model*************************-->
+ <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.000301193114215219 -0.000264421398457275 0.0652369205113283"
+        rpy="0 0 0" />
+      <mass
+        value="0.228872847285847" />
+      <inertia
+        ixx="0.000222140563333681"
+        ixy="-5.51179587321126E-06"
+        ixz="4.25109212464053E-06"
+        iyy="0.000184277315518036"
+        iyz="-2.0490768609154E-06"
+        izz="0.0001244247124249" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="thumb_1_motor_link">
+    <inertial>
+      <origin
+        xyz="-0.00134659150414089 -0.00232830690416286 -0.00101768813498042"
+        rpy="0 0 0" />
+      <mass
+        value="0.000136549603157643" />
+      <inertia
+        ixx="1.43067553896894E-09"
+        ixy="-2.14836068910191E-10"
+        ixz="-2.0967911239982E-10"
+        iyy="1.18346925465607E-09"
+        iyz="-3.6254013632139E-10"
+        izz="8.02470711198408E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_1_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_1_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_1_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="0.00931630886065796 0.0299563185120641 0.102471266861136"
+      rpy="-1.57079632784218 0.52435399894999 -0.140329226724159" />
+    <parent
+      link="base_link" />
+    <child
+      link="thumb_1_motor_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="index_finger_motor_link">
+    <inertial>
+      <origin
+        xyz="8.66428082058057E-10 -3.16905789804478E-11 0.00895694288074636"
+        rpy="0 0 0" />
+      <mass
+        value="0.000279143293182665" />
+      <inertia
+        ixx="2.25311096579505E-09"
+        ixy="1.53236212486341E-10"
+        ixz="-4.61316649584428E-16"
+        iyy="3.25250019800376E-09"
+        iyz="1.69200276195052E-17"
+        izz="2.31951739698569E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_finger_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="0.00667213455302509 0.0268699837382682 0.175548492534744"
+      rpy="-0.0220810428210388 -0.0849339854195388 -1.56714081321017" />
+    <parent
+      link="base_link" />
+    <child
+      link="index_finger_motor_link" />
+    <axis
+      xyz="-0.25410802663088 0.0507085079778244 -0.965845618109035" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="middle_finger_motor_link">
+    <inertial>
+      <origin
+        xyz="8.84129401634848E-10 -2.98818469968154E-11 0.00895694285323655"
+        rpy="0 0 0" />
+      <mass
+        value="0.00027914329153844" />
+      <inertia
+        ixx="2.25216519988671E-09"
+        ixy="1.50117460686703E-10"
+        ixz="-4.6197078484194E-16"
+        iyy="3.253445950516E-09"
+        iyz="1.56606257616648E-17"
+        izz="2.3195173797262E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_finger_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="0.00245528359604117 0.00770352323916319 0.180400049666745"
+      rpy="0 0 -1.57079445110126" />
+    <parent
+      link="base_link" />
+    <child
+      link="middle_finger_motor_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="ring_finger_motor_link">
+    <inertial>
+      <origin
+        xyz="9.0514886211257E-10 -3.04224978542322E-11 0.00895694281253499"
+        rpy="0 0 0" />
+      <mass
+        value="0.000279143289517526" />
+      <inertia
+        ixx="2.25200557117849E-09"
+        ixy="1.49584078143445E-10"
+        ixz="-4.69268853648811E-16"
+        iyy="3.25360555246191E-09"
+        iyz="1.57839057166933E-17"
+        izz="2.31951735934725E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_finger_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="0.000989608862751734 -0.011866526598417 0.175548493891005"
+      rpy="0.00353236602410263 0.0876796909025306 -1.57076973173837" />
+    <parent
+      link="base_link" />
+    <child
+      link="ring_finger_motor_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="little_finger_motor_link">
+    <inertial>
+      <origin
+        xyz="9.24312123368187E-10 -3.22243169648129E-11 0.00895694276319375"
+        rpy="0 0 0" />
+      <mass
+        value="0.000279143287608689" />
+      <inertia
+        ixx="2.25230612319198E-09"
+        ixy="1.50586689859279E-10"
+        ixz="-4.87116646461309E-16"
+        iyy="3.25330495748556E-09"
+        iyz="1.6974459438383E-17"
+        izz="2.31951734092572E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_finger_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="0.000382261342643034 -0.0304107417018537 0.169122906472072"
+      rpy="0.029207745570334 0.172132987369209 -1.56811868222672" />
+    <parent
+      link="base_link" />
+    <child
+      link="little_finger_motor_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="thumb_1_link">
+    <inertial>
+      <origin
+        xyz="-0.0179027439802645 -0.00369579814016622 -0.000141795697264413"
+        rpy="0 0 0" />
+      <mass
+        value="0.00276397506592165" />
+      <inertia
+        ixx="2.89622691163446E-07"
+        ixy="-9.44279430523408E-08"
+        ixz="2.48618327747114E-08"
+        iyy="4.58530995285368E-07"
+        iyz="1.88418472275805E-08"
+        izz="5.57264544001481E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.0132254533115971 0.0271360397292781 0.108531267532083"
+      rpy="-3.14159249850664 0 -1.5707944097144" />
+    <parent
+      link="base_link" />
+    <child
+      link="thumb_1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="thumb_1_motor_joint"
+      multiplier="-157"
+      offset="0" />
+  </joint>
+  <link
+    name="thumb_2_near_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.0238790005730153 0.00540353393523721 -0.00783477106592339"
+        rpy="0 0 0" />
+      <mass
+        value="0.0103593890053803" />
+      <inertia
+        ixx="7.11776108669314E-07"
+        ixy="7.23223676216444E-07"
+        ixz="4.17631168543445E-13"
+        iyy="2.41258997666417E-06"
+        iyz="-4.42351755837649E-13"
+        izz="2.73517270654393E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_near_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_near_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_2_near_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.021965 0.0012073 0.00336"
+      rpy="-1.5708 -0.08158 0.14566" />
+    <parent
+      link="thumb_1_link" />
+    <child
+      link="thumb_2_near_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="thumb_2_motor_joint"
+      multiplier="105"
+      offset="0" />
+  </joint>
+  <link
+    name="thumb_2_far_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.0103926992843134 -0.000408082582531166 -0.00826651673655104"
+        rpy="0 0 0" />
+      <mass
+        value="0.00539379857072937" />
+      <inertia
+        ixx="2.17294641475427E-07"
+        ixy="-7.81195989901626E-08"
+        ixz="-1.79125851265764E-09"
+        iyy="2.97473681793062E-07"
+        iyz="-1.55707780087871E-09"
+        izz="3.08399837830599E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_far_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_far_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_2_far_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.061575 0.018898 -0.01544"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="thumb_2_near_knuckle_link" />
+    <child
+      link="thumb_2_far_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="thumb_2_motor_joint"
+      multiplier="-105"
+      offset="0" />
+  </joint>
+  <link
+    name="thumb_2_motor_link">
+    <inertial>
+      <origin
+        xyz="2.38588340140122E-07 -1.08581721502965E-07 0.0108081384520814"
+        rpy="0 0 0" />
+      <mass
+        value="0.000110785147622986" />
+      <inertia
+        ixx="1.05530608724829E-09"
+        ixy="-2.43433727438706E-11"
+        ixz="-1.67072424155045E-16"
+        iyy="1.01864484554244E-09"
+        iyz="9.28259977414862E-16"
+        izz="4.20185598584072E-10" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_motor_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/thumb_2_motor_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_2_motor_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.04971 0.01526 -0.00822"
+      rpy="-1.5708 0.46272 1.2733" />
+    <parent
+      link="thumb_2_near_knuckle_link" />
+    <child
+      link="thumb_2_motor_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.01"
+      effort="70"
+      velocity="0.023" />
+  </joint>
+  <link
+    name="index_finger_near_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.00886180601732879 -0.0120472731806973 -0.00649946214559654"
+        rpy="0 0 0" />
+      <mass
+        value="0.00232887526351644" />
+      <inertia
+        ixx="2.27755429460998E-07"
+        ixy="-1.26042214152932E-07"
+        ixz="1.5896521650996E-11"
+        iyy="2.37501968252865E-07"
+        iyz="3.55330286663986E-11"
+        izz="3.34507085242655E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_near_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_near_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_finger_near_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="0.0014743 0.035144 0.18594"
+      rpy="-1.7033 0.8504 -0.2455" />
+    <parent
+      link="base_link" />
+    <child
+      link="index_finger_near_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="index_finger_motor_joint"
+      multiplier="-122"
+      offset="0" />
+  </joint>
+  <link
+    name="index_finger_far_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.0145411575190943 -0.020044494822137 -0.00499967524800357"
+        rpy="0 0 0" />
+      <mass
+        value="0.00447951464772177" />
+      <inertia
+        ixx="4.08823082200722E-07"
+        ixy="-2.671868762657E-07"
+        ixz="3.58080808557165E-11"
+        iyy="2.72480810951254E-07"
+        iyz="5.0998825926568E-11"
+        izz="6.00693644933007E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_far_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/index_finger_far_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_finger_far_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.024702898060906 -0.02618785959469 -0.0015"
+      rpy="0 0 0" />
+    <parent
+      link="index_finger_near_knuckle_link" />
+    <child
+      link="index_finger_far_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="index_finger_motor_joint"
+      multiplier="-105"
+      offset="0" />
+  </joint>
+  <link
+    name="middle_finger_near_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.00475231884957457 -0.0167727486935927 -0.00649836729381627"
+        rpy="0 0 0" />
+      <mass
+        value="0.00261246564300185" />
+      <inertia
+        ixx="4.21456211454973E-07"
+        ixy="-1.40140303494931E-07"
+        ixz="-3.23982296849986E-14"
+        iyy="1.8096976541724E-07"
+        iyz="1.26088934321041E-12"
+        izz="4.61903408062542E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_near_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_near_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_finger_near_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0024036 0.014986 0.1914"
+      rpy="-1.5708 0.50846 -0.14566" />
+    <parent
+      link="base_link" />
+    <child
+      link="middle_finger_near_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="middle_finger_motor_joint"
+      multiplier="-122"
+      offset="0" />
+  </joint>
+  <link
+    name="middle_finger_far_knuckle_link">
+    <inertial>
+      <origin
+        xyz="-0.00542945949936143 -0.0260116138840891 -0.0049989385672811"
+        rpy="0 0 0" />
+      <mass
+        value="0.00471669892863847" />
+      <inertia
+        ixx="6.60428864263132E-07"
+        ixy="-1.26642263408953E-07"
+        ixz="8.29301058421921E-14"
+        iyy="8.98438879567073E-08"
+        iyz="1.57256966368377E-12"
+        izz="6.66590531334071E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_far_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/middle_finger_far_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_finger_far_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.015144444197219 -0.038100471452594 -0.00150000270158999"
+      rpy="0 0 0" />
+    <parent
+      link="middle_finger_near_knuckle_link" />
+    <child
+      link="middle_finger_far_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="middle_finger_motor_joint"
+      multiplier="-105"
+      offset="0" />
+  </joint>
+  <link
+    name="ring_finger_near_knuckle_link">
+    <inertial>
+      <origin
+        xyz="0.00383648980211888 -0.0144549680793483 -0.00649942159396797"
+        rpy="0 0 0" />
+      <mass
+        value="0.00232884525856955" />
+      <inertia
+        ixx="3.56774089298551E-07"
+        ixy="2.23141016975735E-08"
+        ixz="-1.8205609444457E-11"
+        iyy="1.08481186974095E-07"
+        iyz="3.61307577646371E-11"
+        izz="3.34505755668309E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_near_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_near_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_finger_near_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0044866 -0.0054897 0.18708"
+      rpy="-1.4835 -0.038725 -0.14905" />
+    <parent
+      link="base_link" />
+    <child
+      link="ring_finger_near_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="ring_finger_motor_joint"
+      multiplier="-122"
+      offset="0" />
+  </joint>
+  <link
+    name="ring_finger_far_knuckle_link">
+    <inertial>
+      <origin
+        xyz="0.0065106139508526 -0.0238922175358328 -0.00499970206022921"
+        rpy="0 0 0" />
+      <mass
+        value="0.00447950911474519" />
+      <inertia
+        ixx="5.86959864149773E-07"
+        ixy="1.23970714130716E-07"
+        ixz="-1.72142001905806E-11"
+        iyy="9.43441200294128E-08"
+        iyz="5.93884522356434E-11"
+        izz="6.00694159987526E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_far_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/ring_finger_far_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_finger_far_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="0.00493135252937275 -0.0356611683065735 -0.0015"
+      rpy="0 0 0" />
+    <parent
+      link="ring_finger_near_knuckle_link" />
+    <child
+      link="ring_finger_far_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="ring_finger_motor_joint"
+      multiplier="-105"
+      offset="0" />
+  </joint>
+  <link
+    name="little_finger_near_knuckle_link">
+    <inertial>
+      <origin
+        xyz="0.00949162035820438 -0.00869370523685226 -0.00651346901748739"
+        rpy="0 0 0" />
+      <mass
+        value="0.002089014936028" />
+      <inertia
+        ixx="2.11796277012887E-07"
+        ixy="8.46611462683513E-08"
+        ixz="3.79992639520792E-12"
+        iyy="1.60572286398938E-07"
+        iyz="-4.75325440366702E-12"
+        izz="2.49353803545383E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_near_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_near_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_finger_near_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.00458180347035023 -0.0251271893815939 0.181087558188147"
+      rpy="-1.36489905599673 -0.556022217685395 -0.255451898886551" />
+    <parent
+      link="base_link" />
+    <child
+      link="little_finger_near_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="little_finger_motor_joint"
+      multiplier="-122"
+      offset="0" />
+  </joint>
+  <link
+    name="little_finger_far_knuckle_link">
+    <inertial>
+      <origin
+        xyz="0.0125584145316533 -0.0118635335183287 -0.00499792760768738"
+        rpy="0 0 0" />
+      <mass
+        value="0.00249846166414677" />
+      <inertia
+        ixx="9.78368107465239E-08"
+        ixy="6.35156741038364E-08"
+        ixz="-8.20409700469597E-13"
+        iyy="9.18741283417871E-08"
+        iyz="-1.72642577256669E-12"
+        izz="1.48500034918474E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_far_knuckle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roger_hand_ros/meshes/little_finger_far_knuckle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_finger_far_knuckle_joint"
+    type="revolute">
+    <origin
+      xyz="0.020319737968706 -0.0247206162441643 -0.00151626780947"
+      rpy="0 0 0" />
+    <parent
+      link="little_finger_near_knuckle_link" />
+    <child
+      link="little_finger_far_knuckle_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="little_finger_motor_joint"
+      multiplier="-105"
+      offset="0" />
+  </joint>
+ <!-- transmission -->
+  <transmission name="thumb_1_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="thumb_1_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="thumb_1_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="thumb_2_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="thumb_2_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="thumb_2_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="index_finger_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="index_finger_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="index_finger_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="middle_finger_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="middle_finger_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="middle_finger_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="ring_finger_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="ring_finger_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="ring_finger_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <transmission name="little_finger_tran">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="little_finger_motor_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="little_finger_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  <!-- gazebo plugin -->
+   <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/roger_hand</robotNamespace>
+        <!-- <controlPeriod>0.0001</controlPeriod> -->
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+		    <legacyModeNS>true</legacyModeNS>
+        <!-- <preserveWorldVelocity>true</preserveWorldVelocity> -->
+      </plugin>
+    </gazebo>
+</robot>

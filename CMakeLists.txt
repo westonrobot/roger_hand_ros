@@ -57,8 +57,6 @@ target_link_libraries(hand_control
   ${catkin_LIBRARIES}
 )
 
-
-
 add_executable(hand_driver_node
 src/hand_driver_node.cpp
 src/hand_driver.cpp
@@ -70,3 +68,7 @@ target_link_libraries(hand_driver_node
   hand_control
 )
 
+foreach(dir config launch meshes urdf)
+	install(DIRECTORY ${dir}/
+		DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir})
+endforeach(dir)

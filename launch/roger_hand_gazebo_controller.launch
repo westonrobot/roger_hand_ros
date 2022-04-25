@@ -1,0 +1,15 @@
+<launch>
+   <!-- 将关节控制器的配置参数加载到服务器中 -->
+   <rosparam file="$(find roger_hand_ros)/config/roger_hand_control.yaml" command="load"/>
+   <!-- 加载控制器 -->
+   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+           output="screen" ns="/roger_hand" args="joint_state_controller
+                                                thumb_1_joint_controller
+                                                thumb_2_joint_controller
+                                                index_finger_joint_controller
+                                                middle_finger_joint_controller
+                                                ring_finger_joint_controller
+                                                little_finger_joint_controller"/>
+    <!-- 运行robot_state_publisher节点，发布TF -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+</launch>

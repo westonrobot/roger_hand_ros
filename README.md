@@ -80,3 +80,15 @@ Note:  If you get the error "... permission denied ..." when trying to open the 
 $ sudo usermod -a -G dialout $USER
 ```
 You need to re-login to get the change to take effect.
+
+
+## Roger Hnad Description
+
+### Try it in RViz environment:
+    roslaunch roger_hand_ros display.launch
+### Call the model in the Gazebo environment
+    roslaunch roger_hand_ros roger_hand_gazebo.launch
+   
+### Remark
+    The command of the Joint interface given in the URDF model is the displacement command of the motor screw 0-10mm;
+    If you need to use the actual motor command in the simulation, you need to convert the command, that is, 0-2000 corresponds to the full stroke of the motor, and directly divide the full stroke into 2000 copies.

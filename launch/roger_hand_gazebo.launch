@@ -1,0 +1,4 @@
+<launch>
+   <include file="$(find roger_hand_ros)/launch/gazebo.launch"/>
+   <include file="$(find roger_hand_ros)/launch/roger_hand_gazebo_controller.launch"/>
+</launch>
