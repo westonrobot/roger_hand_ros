@@ -5,12 +5,12 @@
 #include "roger_hand_ros/hand_control.h"
 #include <stdio.h>
 #include <unistd.h>
-#include <roger_hand_ros/ampere_feedback.h>
-#include <roger_hand_ros/clear_error.h>
-#include <roger_hand_ros/finger_pose.h>
-#include <roger_hand_ros/hand_enable.h>
-#include <roger_hand_ros/hand_pose.h>
-#include <roger_hand_ros/hand_state.h>
+#include <roger_hand_msgs/ampere_feedback.h>
+#include <roger_hand_msgs/clear_error.h>
+#include <roger_hand_msgs/finger_pose.h>
+#include <roger_hand_msgs/hand_enable.h>
+#include <roger_hand_msgs/hand_pose.h>
+#include <roger_hand_msgs/hand_state.h>
 
 class handDriver {
 public:
@@ -18,20 +18,20 @@ public:
   ~handDriver();
   bool handDriverInit(ros::NodeHandle &root_nh);
 
-  bool set_finger_pose_cb(roger_hand_ros::finger_pose::Request &req,
-                        roger_hand_ros::finger_pose::Response &res);
+  bool set_finger_pose_cb(roger_hand_msgs::finger_pose::Request &req,
+                        roger_hand_msgs::finger_pose::Response &res);
 
-  bool set_hand_pose_cb(roger_hand_ros::hand_pose::Request &req,
-                        roger_hand_ros::hand_pose::Response &res);
+  bool set_hand_pose_cb(roger_hand_msgs::hand_pose::Request &req,
+                        roger_hand_msgs::hand_pose::Response &res);
 
-  bool set_ampere_feedback_cb(roger_hand_ros::ampere_feedback::Request &req,
-                              roger_hand_ros::ampere_feedback::Response &res);
+  bool set_ampere_feedback_cb(roger_hand_msgs::ampere_feedback::Request &req,
+                              roger_hand_msgs::ampere_feedback::Response &res);
 
-  bool set_hand_enable_cb(roger_hand_ros::hand_enable::Request &req,
-                          roger_hand_ros::hand_enable::Response &res);
+  bool set_hand_enable_cb(roger_hand_msgs::hand_enable::Request &req,
+                          roger_hand_msgs::hand_enable::Response &res);
 
-  bool clear_hand_error_cb(roger_hand_ros::clear_error::Request &req,
-                           roger_hand_ros::clear_error::Response &res);
+  bool clear_hand_error_cb(roger_hand_msgs::clear_error::Request &req,
+                           roger_hand_msgs::clear_error::Response &res);
   bool hand_state_pub_();
 
   bool open_hand_(std::string file_name);

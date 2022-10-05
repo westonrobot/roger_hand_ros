@@ -55,12 +55,12 @@ bool handDriver::handDriverInit(ros::NodeHandle &root_nh) {
       "clear_hand_error", &handDriver::clear_hand_error_cb, this);
 
   hand_state_pub =
-      nh_.advertise<roger_hand_ros::hand_state>("hand_state", 10, true);
+      nh_.advertise<roger_hand_msgs::hand_state>("hand_state", 10, true);
   return true;
 }
 
-bool handDriver::set_finger_pose_cb(roger_hand_ros::finger_pose::Request &req,
-                                    roger_hand_ros::finger_pose::Response &res) {
+bool handDriver::set_finger_pose_cb(roger_hand_msgs::finger_pose::Request &req,
+                                    roger_hand_msgs::finger_pose::Response &res) {
 
   if (req.index == 1 || req.index == 2 || req.index == 3 || req.index == 4 ||
       req.index == 5 || req.index == 6) {
@@ -81,8 +81,8 @@ bool handDriver::set_finger_pose_cb(roger_hand_ros::finger_pose::Request &req,
   return true;
 }
 
-bool handDriver::set_hand_pose_cb(roger_hand_ros::hand_pose::Request &req,
-                                  roger_hand_ros::hand_pose::Response &res) {
+bool handDriver::set_hand_pose_cb(roger_hand_msgs::hand_pose::Request &req,
+                                  roger_hand_msgs::hand_pose::Response &res) {
 
   if (req.pose.size() > 6) {
     ROS_ERROR("Too Many Arguments!");
@@ -113,16 +113,16 @@ bool handDriver::set_hand_pose_cb(roger_hand_ros::hand_pose::Request &req,
 }
 
 bool handDriver::set_ampere_feedback_cb(
-    roger_hand_ros::ampere_feedback::Request &req,
-    roger_hand_ros::ampere_feedback::Response &res) {
+    roger_hand_msgs::ampere_feedback::Request &req,
+    roger_hand_msgs::ampere_feedback::Response &res) {
   ampere_threshold = req.ampere_threshold;
   ampere_feedback = req.ampere_feedback;
   res.set_ok = true;
   return true;
 }
 
-bool handDriver::set_hand_enable_cb(roger_hand_ros::hand_enable::Request &req,
-                                    roger_hand_ros::hand_enable::Response &res) {
+bool handDriver::set_hand_enable_cb(roger_hand_msgs::hand_enable::Request &req,
+                                    roger_hand_msgs::hand_enable::Response &res) {
   if (req.hand_work) {
     enable_hand(fd);
     for (int index_ = 0; index_ < 6; index_++)
@@ -136,8 +136,8 @@ bool handDriver::set_hand_enable_cb(roger_hand_ros::hand_enable::Request &req,
   return true;
 }
 
-bool handDriver::clear_hand_error_cb(roger_hand_ros::clear_error::Request &req,
-                                     roger_hand_ros::clear_error::Response &res) {
+bool handDriver::clear_hand_error_cb(roger_hand_msgs::clear_error::Request &req,
+                                     roger_hand_msgs::clear_error::Response &res) {
 
   clearErr_hand(fd);
   res.set_ok = true;
@@ -145,7 +145,7 @@ bool handDriver::clear_hand_error_cb(roger_hand_ros::clear_error::Request &req,
 }
 
 bool handDriver::hand_state_pub_() {
-  roger_hand_ros::hand_state hand_state_;
+  roger_hand_msgs::hand_state hand_state_;
   std::vector<int> hand_pose_;
   std::vector<int> hand_temp_;
   std::vector<int> hand_ampere_;
