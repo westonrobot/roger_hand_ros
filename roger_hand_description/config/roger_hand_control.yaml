@@ -1,0 +1,31 @@
+roger_hand:
+  #Publish_state_controller:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  #Position Controller---------
+  thumb_1_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: thumb_1_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  thumb_2_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: thumb_2_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  index_finger_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: index_finger_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  middle_finger_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: middle_finger_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  ring_finger_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: ring_finger_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
+  little_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: little_finger_motor_joint
+    pid: { p: 100.0, i: 0.01, d: 10.0 }
