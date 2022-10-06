@@ -1,10 +1,14 @@
-#ifndef _HAND_DRIVER_H_
-#define _HAND_DRIVER_H_
+#ifndef HAND_DRIVER_H
+#define HAND_DRIVER_H
 
+// C++
+#include <unistd.h>
+#include <stdio.h>
+#include <string>
+
+// ROS
 #include "ros/ros.h"
 #include "roger_hand_ros/hand_control.h"
-#include <stdio.h>
-#include <unistd.h>
 #include <roger_hand_msgs/ampere_feedback.h>
 #include <roger_hand_msgs/clear_error.h>
 #include <roger_hand_msgs/finger_pose.h>
@@ -12,14 +16,43 @@
 #include <roger_hand_msgs/hand_pose.h>
 #include <roger_hand_msgs/hand_state.h>
 
-class handDriver {
-public:
-  handDriver();
-  ~handDriver();
-  bool handDriverInit(ros::NodeHandle &root_nh);
+class HandDriver {
+ public:
+  HandDriver(ros::NodeHandle *nh);
+  ~HandDriver();
 
+  bool EnableHand();
+  bool Active();
+  bool PublishHandState();
+
+ private:
+  // ----- ROS Node Parameters -----
+  std::string port_name_;
+  // ----- Internal Variables -----
+  ros::NodeHandle *nh_;
+  int fd_ = -1;
+  bool is_active_ = false;
+  int ampere_threshold_ = 800;
+  bool ampere_feedback_ = false;
+  PortInfo_t portinfo_ = {BAUDRATE, 8, 2, 0, 1, 0};
+  int is_finger_enabled_[6] = {0};
+  int pos_dst_[6] = {0};
+  int pos_real_[6] = {0};
+  int temp_[6] = {0};
+  int ampere_[6] = {0};
+  int err_[6] = {0};
+  // ----- Published Messages-----
+  // ----- Subscribers & Publishers & Services-----
+  ros::Publisher hand_state_pub;
+
+  ros::ServiceServer set_finger_pose_server_;
+  ros::ServiceServer set_hand_pose_server_;
+  ros::ServiceServer set_hand_enable_server_;
+  ros::ServiceServer set_ampere_feedback_server_;
+  ros::ServiceServer clear_hand_error_server_;
+  // ----- Callbacks -----
   bool set_finger_pose_cb(roger_hand_msgs::finger_pose::Request &req,
-                        roger_hand_msgs::finger_pose::Response &res);
+                          roger_hand_msgs::finger_pose::Response &res);
 
   bool set_hand_pose_cb(roger_hand_msgs::hand_pose::Request &req,
                         roger_hand_msgs::hand_pose::Response &res);
@@ -32,28 +65,11 @@ public:
 
   bool clear_hand_error_cb(roger_hand_msgs::clear_error::Request &req,
                            roger_hand_msgs::clear_error::Response &res);
-  bool hand_state_pub_();
 
-  bool open_hand_(std::string file_name);
-  void close_hand_();
-  bool hand_detect_(std::string file_name);
-
-  ros::NodeHandle nh_;
-  ros::ServiceServer set_finger_pose_server_;
-  ros::ServiceServer set_hand_pose_server_;
-  ros::ServiceServer set_hand_enable_server_;
-  ros::ServiceServer set_ampere_feedback_server_;
-  ros::ServiceServer clear_hand_error_server_;
-
-  ros::Publisher hand_state_pub;
-
-  int fd = -1;
-  int ampere_threshold = 800;
-  bool open_hand = false;
-  bool ampere_feedback = false;
-  PortInfo_t portinfo = {BAUDRATE, 8, 2, 0, 1, 0};
-  int finger_work[6] = {0}, pos_dst[6] = {0}, pos_real[6] = {0}, temp[6] = {0},
-      ampere[6] = {0}, err[6] = {0};
+  bool ReadParameters();
+  bool SetupInterfaces();
+  void DisableHand();
+  bool IsPortAccessible(std::string port_name);
 };
 
-#endif
+#endif /* HAND_DRIVER_H */
