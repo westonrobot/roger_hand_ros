@@ -10,8 +10,10 @@ int main(int argc, char *argv[]) {
   HandDriver hand_driver = HandDriver(&n);
   ros::Rate loop_rate(100);
   while (ros::ok()) {
-    if (!hand_driver.Active()) {       // Hand is not active
-      hand_driver.EnableHand();    // Check and initialise if possible
+    if (!hand_driver.Active()) {  // Hand is not active
+      ros::Rate loop_rate(0.5);
+      loop_rate.sleep();
+      hand_driver.EnableHand();        // Check and initialise if possible
     } else {                           // Hand is active
       hand_driver.PublishHandState();  // Publish hand state
     }

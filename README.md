@@ -18,7 +18,7 @@ $ catkin_make
 
 
 ```
-$ roslaunch roger_hand_ros roger_hand_server.launch port_name:=/dev/ttyUSB*
+$ roslaunch roger_hand_bringup roger_hand_server.launch port_name:=/dev/ttyUSB*
 ```
 
 * Current state of hand
@@ -80,3 +80,4 @@ Note:  If you get the error "... permission denied ..." when trying to open the 
 $ sudo usermod -a -G dialout $USER
 ```
 You need to re-login to get the change to take effect.
+

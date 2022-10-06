@@ -67,6 +67,7 @@ bool HandDriver::EnableHand() {
       is_active_ = false;
       return false;
     } else {
+      ROS_DEBUG_STREAM("Successfully open port:" << port_name_);
       SerialSet(fd_, &portinfo_);
       is_active_ = true;
       ampere_feedback_ = true;
@@ -160,7 +161,7 @@ bool HandDriver::set_hand_enable_cb(
   } else {
     unable_hand(fd_);
     for (int index = 0; index < 6; index++) {
-      is_finger_enabled_[index] = true;
+      is_finger_enabled_[index] = false;
     }
   }
   res.set_ok = true;
@@ -218,6 +219,7 @@ bool HandDriver::PublishHandState() {
     if (is_active_) {
       DisableHand();
     }
+    ROS_WARN_STREAM("Port: " << port_name_ << " is not accessible!!!");
     return false;
   }
 }
