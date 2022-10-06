@@ -25,11 +25,11 @@ bool HandDriver::ReadParameters() {
     return false;
   }
 
-  ROS_INFO("--- Parameters loaded are ---");
+  ROS_DEBUG("--- Parameters loaded are ---");
 
-  ROS_INFO_STREAM("port_name: " << port_name_);
+  ROS_DEBUG_STREAM("port_name: " << port_name_);
 
-  ROS_INFO("-----------------------------");
+  ROS_DEBUG("-----------------------------");
 
   return true;
 }
@@ -60,6 +60,8 @@ bool HandDriver::IsPortAccessible(std::string port_name) {
 }
 
 bool HandDriver::EnableHand() {
+  HandDriver::ReadParameters();
+  ROS_INFO_STREAM("Attempting to enable hand on port: " << port_name_);
   if (IsPortAccessible(port_name_)) {
     fd_ = SerialOpen(port_name_.c_str());
     if (fd_ < 0) {
@@ -67,7 +69,7 @@ bool HandDriver::EnableHand() {
       is_active_ = false;
       return false;
     } else {
-      ROS_DEBUG_STREAM("Successfully open port:" << port_name_);
+      ROS_INFO_STREAM("Successfully open port:" << port_name_);
       SerialSet(fd_, &portinfo_);
       is_active_ = true;
       ampere_feedback_ = true;
