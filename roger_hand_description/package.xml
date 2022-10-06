@@ -58,7 +58,7 @@
   <build_depend>joint_state_publisher</build_depend>
   <build_depend>joint_state_publisher_gui</build_depend>
   <build_depend>robot_state_publisher</build_depend>
-  <build_depend>ros_controllers</build_depend>
+  <build_depend>position_controllers</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>rviz</build_depend>
@@ -67,7 +67,7 @@
   <build_export_depend>joint_state_publisher</build_export_depend>
   <build_export_depend>joint_state_publisher_gui</build_export_depend>
   <build_export_depend>robot_state_publisher</build_export_depend>
-  <build_export_depend>ros_controllers</build_export_depend>
+  <build_export_depend>position_controllers</build_export_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>rviz</build_export_depend>
@@ -76,7 +76,7 @@
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>ros_controllers</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>rviz</exec_depend>

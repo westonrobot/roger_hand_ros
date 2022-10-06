@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[]) {
   ros::init(argc, argv, "hand_driver");
-  ros::NodeHandle n;
+  ros::NodeHandle n("~");
 
   HandDriver hand_driver = HandDriver(&n);
   ros::Rate loop_rate(100);
