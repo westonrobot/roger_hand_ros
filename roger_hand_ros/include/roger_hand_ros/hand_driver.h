@@ -34,7 +34,7 @@ class HandDriver {
   bool is_active_ = false;
   int ampere_threshold_ = 800;
   bool ampere_feedback_ = false;
-  PortInfo_t portinfo_ = {BAUDRATE, 8, 2, 0, 1, 0};
+  PortInfo_t portinfo_ = {BAUDRATE, 8, 0, 0, 1, 0};
   int is_finger_enabled_[6] = {0};
   int pos_dst_[6] = {0};
   int pos_real_[6] = {0};

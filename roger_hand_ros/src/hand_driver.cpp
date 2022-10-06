@@ -93,8 +93,7 @@ bool HandDriver::Active() { return is_active_; }
 bool HandDriver::set_finger_pose_cb(
     roger_hand_msgs::finger_pose::Request &req,
     roger_hand_msgs::finger_pose::Response &res) {
-  if (req.index == 1 || req.index == 2 || req.index == 3 || req.index == 4 ||
-      req.index == 5 || req.index == 6) {
+  if (req.index >= 1 && req.index <= 6) {
     sleep_time(1);
     int index = req.index;
     pos_dst_[index - 1] = req.pose;
