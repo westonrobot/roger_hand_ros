@@ -37,6 +37,9 @@ $ source devel/setup.bash
 | `~/set_ampere_feedback` | roger_hand_msgs::ampere_feedback | Enable current feedback and threshold level |
 | `~/set_hand_enable`     | roger_hand_msgs::hand_enable     | (Dis/En)able hand operation                 |
 
+| Parameter   | Type | Description                                                |
+| ----------- | ---- | ---------------------------------------------------------- |
+| `port_name` | str  | Port to hand's control box. (Required for user to provide) |
 
 ## Example Usage
 **_You may need to change runtime parameters by editing the corresponding launch file_**
