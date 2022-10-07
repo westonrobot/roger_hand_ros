@@ -8,24 +8,51 @@ roger_hand:
   thumb_1_joint_controller:
     type: position_controllers/JointPositionController
     joint: thumb_1_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
   thumb_2_joint_controller:
     type: position_controllers/JointPositionController
     joint: thumb_2_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
   index_finger_joint_controller:
     type: position_controllers/JointPositionController
     joint: index_finger_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
   middle_finger_joint_controller:
     type: position_controllers/JointPositionController
     joint: middle_finger_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
   ring_finger_joint_controller:
     type: position_controllers/JointPositionController
     joint: ring_finger_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
-  little_joint_controller:
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
+  little_finger_joint_controller:
     type: position_controllers/JointPositionController
     joint: little_finger_motor_joint
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 2.0, i: 0.01, d: 0.01 }
+
+  gazebo_ros_control:   
+    pid_gains:
+      thumb_1_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
+      thumb_2_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
+      index_finger_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
+      middle_finger_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
+      ring_finger_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
+      little_finger_motor_joint:
+        p: 2.0
+        i: 0.01 
+        d: 0.01
