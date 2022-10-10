@@ -1,0 +1,5 @@
+<launch>
+   <param name="robot_description" command="$(find xacro)/xacro $(find roger_hand_description)/urdf/roger_hand_description.urdf.xacro" />
+   <include file="$(find roger_hand_description)/launch/roger_hand_gazebo_description.launch" />
+   <include file="$(find roger_hand_description)/launch/roger_hand_gazebo_controller.launch" />
+</launch>

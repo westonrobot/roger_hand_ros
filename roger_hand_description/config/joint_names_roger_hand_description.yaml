@@ -1,0 +1,21 @@
+controller_joint_names:
+  [
+    "",
+    "thumb_1_motor_joint",
+    "index_finger_motor_joint",
+    "middle_finger_motor_joint",
+    "ring_finger_motor_joint",
+    "little_finger_motor_joint",
+    "thumb_1_joint",
+    "thumb_2_near_knuckle_joint",
+    "thumb_2_far_knuckle_joint",
+    "thumb_2_motor_joint",
+    "index_finger_near_knuckle_joint",
+    "index_finger_far_knuckle_joint",
+    "middle_finger_near_knuckle_joint",
+    "middle_finger_far_knuckle_joint",
+    "ring_finger_near_knuckle_joint",
+    "ring_finger_far_knuckle_joint",
+    "little_finger_near_knuckle_joint",
+    "little_finger_far_knuckle_joint",
+  ]

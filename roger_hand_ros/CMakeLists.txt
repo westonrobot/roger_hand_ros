@@ -1,40 +1,20 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(roger_hand_ros)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+# add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs message_generation)
-
-
-add_service_files(FILES
-  finger_pose.srv
-  clear_error.srv
-  ampere_feedback.srv
-  hand_enable.srv
-  hand_pose.srv
-)
-
-
-
-add_message_files(FILES
-  hand_state.msg
-)
-
-generate_messages(DEPENDENCIES
-  std_msgs
+find_package(catkin REQUIRED COMPONENTS
+  roger_hand_msgs
+  roscpp
+  rospy
 )
 
 catkin_package(
-  CATKIN_DEPENDS
-  message_runtime
-#  INCLUDE_DIRS include
-#  LIBRARIES roger_hand_ros
-#  CATKIN_DEPENDS other_catkin_pkg
-#  DEPENDS system_lib
+ CATKIN_DEPENDS roger_hand_msgs roscpp rospy
 )
 
 ###########
@@ -44,8 +24,8 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include ${catkin_INCLUDE_DIRS}
-# ${catkin_INCLUDE_DIRS}
+  include
+  ${catkin_INCLUDE_DIRS}
 )
 
 add_library(hand_control
@@ -58,7 +38,6 @@ target_link_libraries(hand_control
 )
 
 
-
 add_executable(hand_driver_node
 src/hand_driver_node.cpp
 src/hand_driver.cpp
@@ -69,4 +48,3 @@ target_link_libraries(hand_driver_node
   ${catkin_LIBRARIES}
   hand_control
 )
-
